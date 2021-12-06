@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr" >
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Jeux de donn&eacute;es / Saisie des m&eacute;tadonn&eacute;es</title>
+
+	<!-- CSS -->
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- JS -->
+	<script src="js/options.js"></script>
+    <script src="js/param.js"></script>
+    <script src="js/index.js"></script>
+	<script src="js/jquery.min.js"></script>
+
+	<script type="text/javascript">
+            var maxField = 10; //Input fields increment limitation
+
+            $(document).ready(function() {
+            	// Load json from user
+				$('.load_data').click(function() {
+					var file = document.getElementById("selectFiles").files;
+					load_data(file);
+				});
+
+                // Insert checkbox code
+                for (var key in checkboite) {
+					if (checkboite.hasOwnProperty(key)) {
+						insert_checkboite(key);
+                    }
+                }
+                // Insert listbox code
+                for (var key in listboite) {
+					if (listboite.hasOwnProperty(key)) {
+						insert_listboite(key);
+                    }
+                }
+                // Insert txtbox code
+                for (var key in txtboite) {
+					if (txtboite.hasOwnProperty(key)) {
+						insert_txtboite(key);
+                    }
+                }
+                // Insert areabox code
+                for (var key in areaboite) {
+					if (areaboite.hasOwnProperty(key)) {
+						insert_areaboite(key);
+                    }
+                }
+                    // Bouton Add Listener
+                    $('.add_button.multivalorisation').click(function(){add_bouton('multivalorisation');});
+                    $('.add_button.tag_dispo').click(function(){add_bouton('tag_dispo');});
+                    $('.add_button.tag_site').click(function(){add_bouton('tag_site');});
+                    $('.add_button.tag_dna').click(function(){add_bouton('tag_dna');});
+                    $('.add_button.tag_pheno').click(function(){add_bouton('tag_pheno');});
+                    $('.add_button.tag_envt').click(function(){add_bouton('tag_envt');});
+                    $('.add_button.tag_info').click(function(){add_bouton('tag_info');});
+                    $('.add_button.tag_projet').click(function(){add_bouton('tag_projet');});
+                    $('.add_button.tag_espece').click(function(){add_bouton('tag_espece');});
+                    $('.add_button.tag_annee').click(function(){add_bouton('tag_annee');});
+                    $('.add_button.tag_financeur').click(function(){add_bouton('tag_financeur');});
+                    $('.add_button.tag_contrat').click(function(){add_bouton('tag_contrat');});
+
+                    $('.field_wrapper.multivalorisation').on('click', '.remove_button.multivalorisation', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['multivalorisation']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_dispo').on('click', '.remove_button.tag_dispo', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_dispo']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_site').on('click', '.remove_button.tag_site', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_site']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_dna').on('click', '.remove_button.tag_dna', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_dna']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_pheno').on('click', '.remove_button.tag_pheno', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_pheno']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_envt').on('click', '.remove_button.tag_envt', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_envt']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_info').on('click', '.remove_button.tag_info', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_info']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_projet').on('click', '.remove_button.tag_projet', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_projet']['compteur']--; //Decrement field counter
+                    });
+                    $('.field_wrapper.tag_espece').on('click', '.remove_button.tag_espece', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_espece']['compteur']--; //Decrement field counter
+                    });
+                     $('.field_wrapper.tag_annee').on('click', '.remove_button.tag_annee', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_annee']['compteur']--; //Decrement field counter
+                    });
+                     $('.field_wrapper.tag_financeur').on('click', '.remove_button.tag_financeur', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_financeur']['compteur']--; //Decrement field counter
+                    });
+                     $('.field_wrapper.tag_contrat').on('click', '.remove_button.tag_contrat', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_contrat']['compteur']--; //Decrement field counter
+                    });
+                     $('.field_wrapper.tag_nvxbio').on('click', '.remove_button.tag_nvxbio', function(e){
+                            e.preventDefault();
+                            $(this).parent('div').remove(); //Remove field html
+                            checkboite['tag_nvxbio']['compteur']--; //Decrement field counter
+                    });
+
+                    //==== alimentation des options des checkbox ====
+                    for (var key in chkbxdico) {
+                        if (chkbxdico.hasOwnProperty(key)) {
+                            var obj = chkbxdico[key];
+                            var localcpt = maxField;
+                            for( var i = 0; i < obj.length; ++i ) {
+                                localcpt++;
+                                var htmltemplate = '<div class="form-check form-check-inline">\
+                                                    <label class="form-check-label" for="'+ key + obj[i] +'">\
+                                                    <input type="checkbox" name="'+ key + '-' + localcpt + '" value="'+ obj[i] +'" class="form-check-input '+ key +'" id="'+ key + obj[i] +'">\
+                                                    '+ obj[i] +'</label></div>';
+                                $('#' + key + ' fieldset').append(htmltemplate);
+                            }
+                        }
+                     }
+
+                     //==== generation options des listes ====
+                     for (var key in listdico) {
+                        if (listdico.hasOwnProperty(key)) {
+                            var obj = listdico[key];
+                            for( var i = 0; i < obj.length; ++i ) {
+                                 var htmltemplate = '<option value="'+ obj[i] +'">'+ obj[i] +'</option>';
+                                 $('#'+key+' fieldset select').append(htmltemplate);
+                            }
+                        }
+                     }
+            });
+
+
+            function insert_checkboite (identif_boite){
+				 var myfieldHTML =
+                                '<div style="padding:4px; border:4px solid #ebebeb;">\
+                                    <div style="padding:3px; background-color:#ebebeb;">\
+                                        <div id="'+identif_boite+'" class="form-group '+identif_boite+'">\
+                                            <label for="name" class="labeldiv">'+checkboite[identif_boite]['titre']+'</label>\
+                                            <fieldset></fieldset>\
+                                        </div>';
+
+				if (checkboite[identif_boite]['open']) {
+					myfieldHTML += '\
+                                        <label for="select" class="labeldiv">'+checkboite[identif_boite]['label']+'</label>\
+                                        <div class="field_wrapper '+identif_boite+'">\
+                                            <div>\
+                                                <input class="form-control '+identif_boite+'" type="text" name="'+identif_boite+'-1" value=""/>\
+                                                <a href="javascript:void(0);" class="add_button '+identif_boite+'" title="Add field"><button type="button" class="btn btn-primary btn-xs" id="addrow"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une ligne</button></a>\
+                                                <input type="hidden" name="compteur" value="2" id="compteur"/>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </div>';
+                } else {
+					myfieldHTML += '</div>\</div>';
+                }
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function insert_listboite (identif_boite){
+                var myfieldHTML =
+                                '<div id="'+identif_boite+'" class="form-group '+identif_boite+'">\
+                                    <label for="name" class="labeldiv">'+listboite[identif_boite]['titre']+'</label>\
+                                    <fieldset>\
+                                        <select id="'+identif_boite+'_select" name="'+identif_boite+'" class="form-control '+identif_boite+'"></select>\
+                                    </fieldset>\
+                                </div>';
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function insert_txtboite (identif_boite){
+                var myfieldHTML =
+                                '<div class="form-group">\
+                                    <label for="XXXX" class="labeldiv">'+ txtboite[identif_boite]['titre'] +'</label>\
+                                    <input class="form-control solo" type="text" name="'+ identif_boite +'" id="'+ identif_boite +'" />\
+                                </div>';
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function insert_areaboite (identif_boite){
+                var myfieldHTML =
+                                '<div class="form-group">\
+                                    <label for="'+ identif_boite +'">'+ areaboite[identif_boite]['titre'] +'</label>\
+                                    <textarea class="form-control" name="'+ identif_boite +'" rows="'+ areaboite[identif_boite]['rows'] +'" cols="'+ areaboite[identif_boite]['cols'] +'" id="'+ identif_boite +'"></textarea>\
+                                </div>';
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function add_bouton (chk_box_name){
+                var cur_cpt = checkboite[chk_box_name]['compteur'];
+                var targetDOM = '.field_wrapper.' + chk_box_name;
+
+                if(cur_cpt < maxField){
+                        cur_cpt++; //Increment field counter
+                        checkboite[chk_box_name]['compteur'] =  cur_cpt;
+                        var fieldHTML = '<br/><div><input type="text" class="form-control '+ chk_box_name +'" name="'+ chk_box_name +'-'+ cur_cpt +'" value=""/><a href="javascript:void(0);" class="remove_button '+ chk_box_name +'"><button type="button" class="btn btn-danger btn-xs" id="addrow"><i class="fa fa-plus-circle" aria-hidden="true"></i> Supprimer la ligne</button></a></div>'; //New input field html
+                        $(targetDOM).append(fieldHTML); //Add field html
+                }
+            }
+
+
+
+	</script>
+</head>
+
+<body>
+
+<div class="left-div">
+	<div class="btn-group btn-group-lg" role="group">
+		<img src="img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="img/Logo-Biogeco_inra_logo.png">
+	</div>
+	<div class="center-div">
+		<div class="btn-group btn-group-lg" role="group">
+		  <a href="./" class="search_data"><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Saisie de m&eacute;tadonn&eacute;es</button></a>
+		  <a href="./search/search.html" class="search_data"><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Recherche de jeux de donn&eacute;es</button></a>
+		  <a href="./docs/doc-pgd-biogeco.html" class="search_data"><button type="button" class="btn btn-outline-info mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Documentation</button></a>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<h1>Jeux de donn&eacute;es</h1>
+
+<section>
+    <div id="mytest"></div>
+    <br/>
+    <form id="formulaire" autocomplete="off" action="#" method="post">
+
+		<h1>Saisie des m&eacute;tadonn&eacute;es</h1>
+
+		<br/><br/>
+
+        <h2>A/ CHARGER UN FORMULAIRE EXISTANT</h2>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">S&eacute;lectionner un fichier json</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="selectFiles">
+                <label class="custom-file-label" for="inputGroupFile01"></label>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="load_data">
+        <button type="button" class="btn btn-success btn-xs" id="load">Charger le contenu</button></a>
+
+    <!-- TEMPORAIRE : Pour voir la tête du json chargé -->
+    <!-- <textarea id="result"></textarea> -->
+
+        <br/><br/>
+        <h2>B/ OU SAISIR LES METADONNEES D'UN JEU DE DONNEES</h2>
+
+		<h3>DEFINITION</h3>
+		<div class="ancre title"></div>
+        <br/>
+
+		<h3>STATUT</h3>
+        <div class="ancre statutdispo"></div>
+        <br/>
+        <div class="ancre statutconservation"></div>
+        <br/>
+
+        <h3>GESTION</h3>
+        <div class="ancre diffusion"></div>
+        <br/>
+        <div class="ancre organism"></div>
+        <br/>
+        <div class="ancre respsci"></div>
+        <br/>
+        <div class="ancre mailsci"></div>
+        <br/>
+        <div class="ancre organismtech"></div>
+        <br/>
+        <div class="ancre resptech"></div>
+        <br/>
+        <div class="ancre mailtech"></div>
+        <br/>
+        <div class="ancre tag_financeur"></div>
+        <br/>
+        <div class="ancre tag_contrat"></div>
+        <br/>
+        <div class="ancre multivalorisation"></div>
+        <br/>
+
+        <h3>LOCALISATION</h3>
+        <div class="ancre tag_dispo"></div>
+        <br/>
+        <div class="ancre tag_site"></div>
+        <br/>
+        <div class="autocomplete">
+            <label for="name" class="labeldiv">Commune</label>
+            <em>(Saisir les premi&egrave;res lettres de la commune)</em>
+            <input class="form-control solo" type="text" name="nom-commune" id="nom-commune" />
+        </div>
+        <div class="autocomplete">
+            <label for="name" class="labeldiv">Latitude</label>
+            <em>(degr&eacute;s d&eacute;cimaux))</em>
+            <input class="form-control solo" type="text" name="latitude" id="latitude" />
+        </div>
+        <div class="autocomplete">
+            <label for="name" class="labeldiv">Longitude</label>
+            <em>(degr&eacute;s d&eacute;cimaux))</em>
+            <input class="form-control solo" type="text" name="longitude" id="longitude" />
+        </div>
+        <br><br>
+
+        <h3>DESCRIPTEURS</h3>
+        <div class="ancre tag_annee"></div>
+        <br/>
+        <div class="ancre tag_nvxbio"></div>
+        <br/>
+        <div class="ancre tag_organisme"></div>
+        <br/>
+        <div class="ancre tag_espece"></div>
+        <br/>
+        <div class="ancre tag_habitat"></div>
+        <br/>
+        <div class="ancre tag_dna"></div>
+        <br/>
+        <div class="ancre tag_pheno"></div>
+        <br/>
+        <div class="ancre tag_envt"></div>
+        <br/>
+        <div class="ancre tag_dynamique"></div>
+        <br/>
+        <div class="ancre tag_info"></div>
+        <br/>
+        <div class="ancre tag_autredonnee"></div>
+        <br/>
+        <div class="ancre description"></div>
+        <br/>
+
+        <div class="form-group">
+              <input class="form-control" type="hidden" name="filename" id="filename" />
+        </div>
+
+		<ul class="bold-red">
+			<li>
+				Une fois votre fichier .json de m&eacute;tadonn&eacute;es cr&eacute;&eacute;, contactez <a href="mailto:philippe.chaumeil@inrae.fr">P.Chaumeil</a> ou <a href="mailto:francois.ehrenmann@inrae.fr">F.Ehrenmann</a> pour d&eacute;p&ocirc;t de celui-ci sur le NAS
+			</li>
+			<li>
+				Vous pouvez stocker vos donn&eacute;es ensuite sur le NAS mais cela n'est pas n&eacute;cessaire si elles sont d&eacute;j&agrave; disponibles sur un autre espace de stockage ou entrep&ocirc;t (exemple : dataverse Biogeco). Dans ce dernier cas, indiquer l'URL o&ugrave; sont stock&eacute;es vos donn&eacute;es dans la section "Description du jeu de donn&eacute;es"
+
+			</li>
+		</ul>
+
+        <p>
+            <input type="submit" value="Enregistrer dans un fichier" class="btn btn-primary btn-block" />
+            <input type="reset" value="Vider le formulaire" class="btn btn-primary btn-block" />
+        </p>
+    </form>
+</section>
+
+
+<!-- TEMPORAIRE : Affichage de ce qui est enregistré dans le fichier json -->
+<pre id="output"></pre>
+
+
+<script>
+	autocomplete(document.getElementById("nom-commune"), communes);
+
+	/* Montrer le nom du fichier selectionner pour chargement : https://www.codeply.com/p/LtpNZllird */
+	document.querySelector('.custom-file-input').addEventListener('change',function(e){
+	  var fileName = document.getElementById("selectFiles").files[0].name;
+	  var nextSibling = e.target.nextElementSibling
+	  nextSibling.innerText = fileName
+	})
+</script>
+
+</body>
+</html>

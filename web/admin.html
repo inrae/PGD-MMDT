@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>Admin</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+        <!-- JS -->
+		<script src="js/options.js"></script>
+		<script src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+            function saveFormAsTextFile(json) {
+
+                var textToSaveAsBlob = new Blob([json], {type:"text/plain;charset=utf-8"});
+                var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+                var timestamp = Math.round(+new Date() / 1000);
+                var fileNameToSaveAs = 'Master_PGD.json';
+
+                var downloadLink = document.createElement("a");
+                downloadLink.download = fileNameToSaveAs;
+                downloadLink.innerHTML = "Download File";
+                downloadLink.href = textToSaveAsURL;
+                downloadLink.style.display = "none";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+            }
+
+
+
+            $(document).ready(function(){
+
+                var new_obj = {chkbxdico : chkbxdico, listdico : listdico};
+                var jsoncontent = JSON.stringify(new_obj);
+                document.getElementById("formulaire").addEventListener( "submit", function(e) {
+                        e.preventDefault();
+                        saveFormAsTextFile(jsoncontent);
+                }, false);
+            });
+
+
+        </script>
+
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h2>Administration</h2>
+            <form id="formulaire" autocomplete="off" action="#" method="post">
+                <input type="submit" value="Generation json options actives" class="btn btn-primary btn-block" />
+            </form>
+            <pre id="output"></pre>
+        </div>
+    </body>
+</html>
