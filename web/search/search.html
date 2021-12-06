@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr" >
+
+<head>
+	<meta charset="UTF-8">
+	<title>Jeux de donn&eacute;es / Saisie des m&eacute;tadonn&eacute;es</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/bootstrap-toc.css">
+
+
+	<!-- JS -->
+	<script src="../js/options.js"></script>
+    <script src="../js/param.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/formsearch.js"></script>
+
+	<script type="text/javascript">
+            var maxField = 10; //Input fields increment limitation
+
+            $(document).ready(function() {
+            	// Load json from user
+				$('.load_data').click(function() {
+					var file = document.getElementById("selectFiles").files;
+					load_data(file);
+				});
+
+                // Insert checkbox code
+                for (var key in checkboite) {
+					if (checkboite.hasOwnProperty(key)) {
+						insert_checkboite(key);
+                    }
+                }
+                // Insert listbox code
+                for (var key in listboite) {
+					if (listboite.hasOwnProperty(key)) {
+						insert_listboite(key);
+                    }
+                }
+                // Insert txtbox code
+                for (var key in txtboite) {
+					if (txtboite.hasOwnProperty(key)) {
+						insert_txtboite(key);
+                    }
+                }
+                // Insert areabox code
+                for (var key in areaboite) {
+					if (areaboite.hasOwnProperty(key)) {
+						insert_areaboite(key);
+                    }
+                }
+
+                    //==== alimentation des options des checkbox ====
+                    for (var key in chkbxdico) {
+                        if (chkbxdico.hasOwnProperty(key)) {
+                            var obj = chkbxdico[key];
+                            var localcpt = maxField;
+                            for( var i = 0; i < obj.length; ++i ) {
+                                localcpt++;
+                                var htmltemplate = '<div class="form-check form-check-inline">\
+                                                    <label class="form-check-label" for="'+ key + obj[i] +'">\
+                                                    <input type="checkbox" name="'+ key + '-' + localcpt + '" value="'+ obj[i] +'" class="form-check-input '+ key +'" id="'+ key + obj[i] +'">\
+                                                    '+ obj[i] +'</label></div>';
+                                $('#' + key + ' fieldset').append(htmltemplate);
+                            }
+                        }
+                     }
+
+                     //==== generation options des listes ====
+                    for (var key in listdico) {
+						var htmltemplate = '<option value="Tous">Tous</option>';
+	                    $('#'+key+' fieldset select').append(htmltemplate);
+                        if (listdico.hasOwnProperty(key)) {
+                            var obj = listdico[key];
+                            for( var i = 0; i < obj.length; ++i ) {
+                                 var htmltemplate = '<option value="'+ obj[i] +'">'+ obj[i] +'</option>';
+                                 $('#'+key+' fieldset select').append(htmltemplate);
+                            }
+                        }
+                     }
+            });
+
+
+            function insert_checkboite (identif_boite){
+                var myfieldHTML =
+                                '<div style="padding:4px; border:4px solid #ebebeb;">\
+                                    <div style="padding:3px; background-color:#ebebeb;">\
+                                        <div id="'+identif_boite+'" class="form-group '+identif_boite+'">\
+                                            <label for="name" class="labeldiv">'+checkboite[identif_boite]['titre']+'</label>\
+                                            <fieldset></fieldset>\
+                                        </div>\
+                                        <div class="field_wrapper '+identif_boite+'">\
+                                        </div>\
+                                    </div>\
+                                </div>';
+
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function insert_listboite (identif_boite){
+                var myfieldHTML =
+                                '<div id="'+identif_boite+'" class="form-group '+identif_boite+'">\
+                                    <label for="name" class="labeldiv">'+listboite[identif_boite]['titre']+'</label>\
+                                    <fieldset>\
+                                        <select id="'+identif_boite+'_select" name="'+identif_boite+'" class="form-control '+identif_boite+'"></select>\
+                                    </fieldset>\
+                                </div>';
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function insert_txtboite (identif_boite){
+                var myfieldHTML =
+                                '<div class="form-group">\
+                                    <label for="XXXX" class="labeldiv">'+ txtboite[identif_boite]['titre'] +'</label>\
+                                    <input class="form-control solo" type="text" name="'+ identif_boite +'" id="'+ identif_boite +'" />\
+                                </div>';
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+            function insert_areaboite (identif_boite){
+                var myfieldHTML =
+                                '<div class="form-group">\
+                                    <label for="'+ identif_boite +'">'+ areaboite[identif_boite]['titre'] +'</label>\
+                                    <textarea class="form-control" name="'+ identif_boite +'" rows="'+ areaboite[identif_boite]['rows'] +'" cols="'+ areaboite[identif_boite]['cols'] +'" id="'+ identif_boite +'"></textarea>\
+                                </div>';
+                $('.ancre.'+ identif_boite).append(myfieldHTML);
+            }
+
+	</script>
+</head>
+
+<body>
+
+<div class="left-div">
+	<div class="btn-group btn-group-lg" role="group">
+		<img src="../img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="../img/Logo-Biogeco_inra_logo.png">
+	</div>
+	<div class="center-div">
+		<div class="btn-group btn-group-lg" role="group">
+		  <a href="../" class="search_data"><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Saisie de m&eacute;tadonn&eacute;es</button></a>
+		  <a href="./search.html" class="search_data"><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Recherche de jeux de donn&eacute;es</button></a>
+		  <a href="../docs/doc-pgd-biogeco.html" class="search_data"><button type="button" class="btn btn-outline-info mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Documentation</button></a>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<h1>Jeux de donn&eacute;es</h1>
+
+<section>
+    <div id="mytest"></div>
+    <br/>
+
+    <form id="formsearch" name="formsearch" enctype="multipart/form-data" accept-charset="utf-8">
+
+		<h1>Formulaire de recherche</h1>
+
+        <br/><br/>
+
+        <h2>STATUT</h2>
+        <div class="ancre statutdispo"></div>
+        <br/>
+
+        <h2>GESTION</h2>
+        <div class="ancre diffusion"></div>
+        <br/>
+        <div class="ancre organism"></div>
+        <br/>
+        <div class="ancre respsci"></div>
+        <br/>
+        <div class="ancre mailsci"></div>
+        <br/>
+        <div class="ancre resptech"></div>
+        <br/>
+        <div class="ancre mailtech"></div>
+        <br/>
+        <div class="ancre tag_financeur"></div>
+        <br/>
+        <div class="ancre tag_contrat"></div>
+        <br/>
+        <div class="ancre multivalorisation"></div>
+        <br/>
+
+        <h2>LOCALISATION</h2>
+        <div class="ancre tag_dispo"></div>
+        <br/>
+        <div class="ancre tag_site"></div>
+        <br/>
+        <div class="autocomplete">
+            <label for="name" class="labeldiv">Commune</label>
+            <em>(Saisir les premi&egrave;res lettres de la commune)</em>
+            <input class="form-control solo" type="text" name="nom-commune" id="nom-commune" />
+        </div>
+        <div class="autocomplete">
+            <label for="name" class="labeldiv">Latitude</label>
+            <em>(degr&eacute;s d&eacute;cimaux))</em>
+            <input class="form-control solo" type="text" name="latitude" id="latitude" />
+        </div>
+        <div class="autocomplete">
+            <label for="name" class="labeldiv">Longitude</label>
+            <em>(degr&eacute;s d&eacute;cimaux))</em>
+            <input class="form-control solo" type="text" name="longitude" id="longitude" />
+        </div>
+        <br><br>
+
+        <h2>DESCRIPTEURS</h2>
+		<div class="ancre tag_annee"></div>
+		 <br/>
+        <div class="ancre tag_nvxbio"></div>
+        <br/>
+        <div class="ancre tag_espece"></div>
+        <br/>
+        <div class="ancre tag_dna"></div>
+        <br/>
+        <div class="ancre tag_pheno"></div>
+        <br/>
+        <div class="ancre tag_envt"></div>
+        <br/>
+        <div class="ancre tag_info"></div>
+        <br/>
+        <div class="ancre description"></div>
+
+        <div class="form-group">
+              <input class="form-control" type="hidden" name="filename" id="filename" />
+        </div>
+
+		<br/>
+
+		<h2 class="searchoptions">CHAMPS DE RECHERCHE</h2>
+		<em>Indiquez ici si les champs que vous avez saisis sont obligatoires (recherche incluant tous les champs saisis) ou s'ils sont optionnels (recherche incluant au moins 1 champ saisi)</em>
+		<br/><br/>
+		<div class="form-check-inline">
+		  <label class="form-check-label">
+			<input type="radio" class="form-check-input" name="operator" value="$and">Obligatoires (ET)
+		  </label>
+		</div>
+		<div class="form-check-inline">
+		  <label class="form-check-label">
+			<input type="radio" class="form-check-input" name="operator" value="$or">Optionnels (OU)
+		  </label>
+		</div>
+
+		<br/><br/>
+
+        <p>
+            <input type="submit" value="Rechercher" class="btn btn-primary btn-block" />
+            <input type="reset" value="Vider le formulaire" class="btn btn-primary btn-block" onClick="$('#container').empty();"/>
+        </p>
+    </form>
+</section>
+
+<a name="results"></a>
+<div id="container" class="table-responsive"></div>
+
+</body>
+</html>
