@@ -1,0 +1,72 @@
+digraph valorisation {
+
+	compound=true;
+	labeljust = m;
+	fontname = "Helvetica";
+
+	graph [
+		rankdir = TB
+		bgcolor= whitesmoke
+	]
+	edge [
+		fontname = Helvetica
+		fontsize = "8"
+	]
+	node [
+		fontname = Helvetica
+		shape = box
+		style = "rounded,filled"
+		color = white
+	]
+
+
+	subgraph cluster_valo {
+		label = < <B><FONT POINT-SIZE="36"> <BR/>VALORISATION DES DONNEES <BR/><BR/></FONT></B> >;
+		bgcolor= "#c7e9c0";
+
+		donnees_vtitle [
+			label = < <B> Données / Code informatique </B> >
+			width=5
+			height=1.2
+		]
+
+	donnees_v4 [
+			label = "Systèmes d'informations, \n Sites web, \ Bases de données"
+			width=4
+			height=1.2
+		]
+
+		donnees_v3 [
+			label = "Articles de données (Datapapers)"
+			width=4
+			height=1.2
+		]
+
+		donnees_v1 [
+			label = < Archive ouverte <BR/> des productions INRA <BR/><BR/> <U> HAL INRAE </U> >
+			fontcolor=blue
+			href="https://hal.inrae.fr/?locale=fr"
+			target="_BLANK"
+			width=4
+			height=1.2
+		]
+
+		donnees_v0 [
+			label = < Entrepôt de données <BR/><BR/> <U>Choisir un entrepôt</U> >
+			fontcolor=blue
+			href="https://www6.inra.fr/datapartage/Partager-Publier/Choisir-un-entrepot"
+			target="_BLANK"
+			width=4
+			height=1.2
+		]
+
+		donnees_v2 [
+			label = "Articles de recherche"
+			width=4
+			height=1.2
+		]
+	}
+
+	# edge definitions with the node IDs
+	donnees_vtitle -> {donnees_v0 donnees_v1 donnees_v2 donnees_v3 donnees_v4}
+}

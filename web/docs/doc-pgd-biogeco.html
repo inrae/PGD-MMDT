@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr" id="top">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Jeux de donn&eacute;es / Saisie des m&eacute;tadonn&eacute;es</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/bootstrap-toc.css">
+
+	<!-- JS -->
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap-toc.js"></script>
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="left-div">
+	<div class="btn-group btn-group-lg" role="group">
+		<img src="../img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="../img/Logo-Biogeco_inra_logo.png">
+	</div>
+	<div class="center-div">
+		<div class="btn-group btn-group-lg" role="group">
+		  <a href="../" class="search_data"><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Saisie de m&eacute;tadonn&eacute;es</button></a>
+		  <a href="../search/search.html" class="search_data"><button type="button" class="btn btn-outline-secondary mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Recherche de jeux de donn&eacute;es</button></a>
+		  <a href="./docs/doc-pgd-biogeco.html" class="search_data"><button type="button" class="btn btn-outline-info mr-2" data-toggle="button" aria-pressed="false" autocomplete="off">Documentation</button></a>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+        </div>
+        <div class="col-sm-8 col-md-7">
+          <h1>Documentation</h1>
+
+			<p><strong><em>L'interface de saisie des m&eacute;tadonn&eacute;es pour les jeux de donn&eacute;es est accessible sur SourceSup, voir le code <a href="">source</a></em></strong></p>
+
+<ul>
+  <li><strong>Application:</strong> <a href="../../pgd-biogeco/">INTERFACE DE SAISIE DE METADONNEES / ESPACE DE STOCKAGE DONNEES</a></li>
+  <li><strong>D&eacute;veloppeurs:</strong> Philippe Chaumeil, <a href="mailto:philippe.chaumeil@inrae.fr">philippe.chaumeil@inrae.fr</a>, Francois Ehrenmann, <a href="mailto:francois.ehrenmann@inrae.fr">francois.ehrenmann@inrae.fr</a></li>
+  <li><strong>Besoin d'aide ?</strong>
+    <ul>
+      <li>Aller voir Fran&ccedil;ois Ehrenmann (B&acirc;timent artiga, Bureau A7)</li>
+      <li>Aller voir Philippe Chaumeil (B&acirc;timent observatoire, Bureau au fond &agrave; droite)</li>
+      <li><a href="mailto:philippe.chaumeil@inrae.fr,francois.ehrenmann@inrae.fr">Email</a> pour une aide individuelle ou pour fixer un rendez-vous</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="description">INRODUCTION</h2>
+
+<p>La mise en place de l'interface de saisie des m&eacute;tadonn&eacute;es s'int&egrave;gre au <a href="http://147.100.113.193/pgd-biogeco/docs/PGD_UMR_BIOGECO.pdf" target="_blank">Plan de Gestion de Donn&eacute;es</a> de l'UMR Biogeco, pour r&eacute;pondre aux questions de l'organisation, de la documentation, du stockage et du partage des donn&eacute;es. Celle-ci permettra de d&eacute;crire l'ensemble des jeux de donn&eacute;es (via leurs m&eacute;tadonn&eacute;es) produits par l'UMR. Cette interface permet donc de :
+<ul>
+	<li>D&eacute;crire un jeu de donn&eacute;es &agrave; l'aide de m&eacute;tadonn&eacute;es de diff&eacute;rents types (Description)</li>
+	<li>Ouvrir un espace de stockage pour le jeu de donn&eacute;es (Stockage)</li>
+	<li>Affecter des droits pour l'acc&egrave;s au jeu de donn&eacute;es (Confidentialit&eacute;)</li>
+	<li>Rechercher des jeux de donn&eacute;es &agrave; partir de leurs m&eacute;tadonn&eacute;es (Accessibilit&eacute;)</li>
+</ul>
+</p>
+
+<p>Cette interface facilitera &eacute;galement l'alimentation du portail <a href="https://data.inra.fr/" target="_blank">DATA INRAE</a> lors du d&eacute;p&ocirc;t de jeu de donn&eacute;es.</p>
+
+<h2 id="saisie">INTERFACE DE SAISIE DE METADONNEES</h2>
+
+<p>L'interface de saisie des m&eacute;tadonn&eacute;es est compos&eacute;e de deux sections principales, la premi&egrave;re &eacute;tant r&eacute;serv&eacute;e au chargement de fichier existant et la seconde &agrave; la saisie de m&eacute;tadonn&eacute;es pour un nouveau jeu de donn&eacute;es. La seconde section contient diff&eacute;rentes cat&eacute;gories de m&eacute;tadonn&eacute;es (STATUT, GESTION, LOCALISATION et DESCRIPTEURS).
+
+<h3 id="charge">A / CHARGER UN FORMULAIRE EXISTANT</h3>
+Section permettant de charger un fichier de m&eacute;tadonn&eacute;es et y apporter des modifications. S&eacute;lectionner un fichier au formal json (obligatoirement g&eacute;n&eacute;r&eacute; par ce formulaire) puis cliquer sur le bouton <strong><i>"Charger le contenu"</i></strong>.
+
+<br/><br/>
+
+<h3 id="saisie">B / SAISIR LES METADONNEES D'UN JEU DE DONNEES</h3>
+Section permettant de saisir les m&eacute;tadonn&eacute;es pour un nouveau jeu de donn&eacute;es.
+<br/><br/>
+<ul>
+	<li><strong>STATUT</strong> : section permettant d'indiquer le statut d'avancement du jeu de donn&eacute;es et sa dur&eacute;e de conservation
+		<ul>
+			<li><i><strong>Statut d'avancement</strong> : Disponible brut, Disponible exploitable ou en cours</i></li>
+			<li><i><strong>Dur&eacute;e de conservation</strong> : indiquer le nombre d'ann&eacute;es de conservation souhait&eacute;</i></li>
+		</ul>
+	</li>
+
+	<br/>
+
+	<li><strong>GESTION</strong> : section permettant de saisir les m&eacute;tadonn&eacute;es relatives &agrave; la gestion du jeu de donn&eacute;es (Droits acc&egrave;s, gestion scientifique et technique, finaceurs, contrats, valorisation)
+		<ul>
+		<i>
+			<li><strong>Droits d'acc&egrave;s aux r&eacute;pertoires par le personnel de l'unit&eacute;</strong></li>
+			<ul>
+				<li>Public (acc&egrave;s possible &agrave; l'ensemble du personnel de l'UMR)</li>
+				<li>Priv&eacute; (acc&egrave;s n&eacute;cessitant des droits)</li>
+				<li>Mixte (acc&egrave;s sp&eacute;cifiques)</li>
+			</ul>
+			<li><strong>Nom de l'organisme r&eacute;alisant la gestion scientifique</strong></li>
+			<li><strong>Nom du responsable scientifique</strong></li>
+			<li><strong>Email du responsable scientifique</strong></li>
+			<li><strong>Nom de l'organisme r&eacute;alisant la gestion technique</strong></li>
+			<li><strong>Nom du responsable technique</strong></li>
+			<li><strong>Email du responsable technique</strong></li>
+			<li><strong>Financeur</strong>
+				<ul>
+					<li>Choisir un ou plusieurs financeurs parmi les items propos&eacute;s</li>
+					<li>Si le ou les financeur(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par financeur &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Contrat</strong>
+				<ul>
+					<li>Choisir un ou plusieurs contrats parmi les items propos&eacute;s</li>
+					<li>Si le ou les contrat(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par contrat &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Valorisation : Choisir un ou plusieurs types de valorisation dans les cases &agrave; cocher propos&eacute;es</strong></li>
+		</i>
+		</ul>
+	</li>
+
+	<br/>
+
+	<li><strong>LOCALISATION</strong> : section permettant de saisir les m&eacute;tadonn&eacute;es relatives au dispositif/site et/ou lieu g&eacute;ographique d'ou provient le jeu de donn&eacute;es (Dispositif, Site, Commune)
+		<ul>
+		<i>
+			<li><strong>Nom du dispositif</strong>
+				<ul>
+					<li>Choisir un ou plusieurs dispositifs parmi les items propos&eacute;s</li>
+					<li>Si le ou les dispositif(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par dispositif &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Nom du site</strong>
+				<ul>
+					<li>Choisir un ou plusieurs sites parmi les items propos&eacute;s</li>
+					<li>Si le ou les site(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par site &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Commune</strong> (saisir les premi&egrave;res lettres de la commune pour faire apparaitre une liste de choix)</li>
+			<li><strong>Latitude</strong> (en degr&eacute;s d&eacute;cimaux, exemple : 41.07)</li>
+			<li><strong>Longitude</strong> (en degr&eacute;s d&eacute;cimaux, exemple : -1.12)</li>
+		</i>
+		</ul>
+	</li>
+
+	<br/>
+
+	<li><strong>DESCRIPTEURS</strong> : section permettant de saisir les m&eacute;tadonn&eacute;es relatives a la description (biologique) du jeu de donn&eacute;es et au type de donn&eacute;es qu'il contient.
+		<ul>
+		<i>
+			<li><strong>Ann&eacute;e(s) de production des donn&eacute;es</strong>
+				<ul>
+					<li>Choisir une ou plusieurs ann&eacute;es parmi les items propos&eacute;s</li>
+					<li>Si le ou les ann&eacute;e(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par ann&eacute;e &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Echelle du vivant</strong> (choisir une ou plusieurs &eacute;chelle(s) parmi les items propos&eacute;s)</li>
+			<li><strong>Type d'organisme</strong>
+				<ul>
+					<li>Choisir une ou plusieurs type(s)ann&eacute;es parmi les items propos&eacute;s</li>
+					<li>Si le ou les type(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par type &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Esp&egrave;ce &eacute;tudi&eacute;e</strong>
+				<ul>
+					<li>Choisir une ou plusieurs esp&egrave;ce(s)ann&eacute;es parmi les items propos&eacute;s</li>
+					<li>Si le ou les esp&egrave;ce(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par esp&egrave;ce &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Habitat</strong> (choisir un ou plusieurs habitat(s) parmi les items propos&eacute;s)</li>
+			<li><strong>Type donn&eacute;e omique</strong> (choisir un ou plusieurs type(s) parmi les items propos&eacute;s)</li>
+			<li><strong>Type donn&eacute;e ph&eacute;notypique</strong>
+				<ul>
+					<li>Choisir un ou plusieurs type(s) de donn&eacute;e ph&eacute;notypique parmi les items propos&eacute;s</li>
+					<li>Si le ou les type(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par type &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Type donn&eacute;e environnement</strong> (choisir un ou plusieurs type(s) parmi les items propos&eacute;s)</li>
+			<li><strong>Dynamique</strong></li>
+			<li><strong>Type donn&eacute;e / code informatique</strong> (choisir un ou plusieurs type(s) parmi les items propos&eacute;s)</li>
+			<li><strong>Autre type de donn&eacute;e</strong>
+				<ul>
+					<li>Choisir un ou plusieurs autre type(s) de donn&eacute;e parmi les items propos&eacute;s</li>
+					<li>Si le ou les type(s) n'apparaissent pas dans les choix propos&eacute;s, il est possible de le(s) saisir manuellement dans le(s) champ pr&eacute;vu &agrave; cet effet. Cr&eacute;er une ligne par type &agrave; ajouter.</li>
+				</ul>
+			</li>
+			<li><strong>Description du jeu de donn&eacute;es / Organisation des r&eacute;pertoires / URL vers sources</strong>
+				<ul>
+					<li>Cette zone de texte permet de donner des d&eacute;tails sur le jeu de donn&eacute;es, qui ne sont pas couverts par les m&eacute;tadonn&eacute;es disponibles dans le formulaire. Par exemple, r&eacute;sum&eacute; succint du jeu de donn&eacute;es et de son contenu, URL du site ou de la base de donn&eacute;es qui h&eacute;berge ce jeu de donn&eacute;es, organisation des r&eacute;pertoires sur l'espace de stockage d&eacute;di&eacute;, etc....</li>
+				</ul>
+			</li>
+		</i>
+		</ul>
+	</li>
+
+	</ul>
+
+</ul>
+</p>
+
+<h2 id="genere-fichier">CREATION DU FICHIER DE METADONNEES</h2>
+
+<p>Lorsque l'ensemble des m&eacute;tadonn&eacute;es a &eacute;t&eacute; saisi, il suffit de valider le formulaire en cliquant sur le bouton <strong>"Enregistrer dans un fichier"</strong> en bas de page. Le navigateur va alors vous proposer de t&eacute;l&eacute;charger votre fichier de m&eacute;tadonn&eacute;es. <br/><br/>Le fichier, au format json, a par d&eacute;faut un nom du type <strong><i>PDG_145985.json</i></strong>. Il est possible de renommer ce fichier avec un nom plus explicite concernant votre jeu de donn&eacute;s, par exemple <strong><i>microvariation_abiogen_2019.json</i></strong>, en prenant bien soin de garder l'extension json pour votre nouveau fichier.
+
+<br/><br/>
+
+Exemple d'un contenu de fichier de m&eacute;tadonn&eacute;es :
+<code>
+{"multivalorisation":["Logiciels ou bases de donn&eacute;es"],"tag_annee":["2012","2013","2014","2015","2016","2017","2018","2019",""],"tag_autredonnee":["GPS",""],"tag_contrat":[""],"tag_dispo":["ABIOGEN","CASTILLONVILLE GENET",""],"tag_dna":[],"tag_dynamique":["Temporelle"],"tag_envt":["Climat","Sol"],"tag_espece":["Pinus pinaster",""],"tag_financeur":["INRAE","Labex COTE",""],"tag_habitat":["For&ecirc;t temp&eacute;r&eacute;e"],"tag_info":["BDD","Programme","Scripts"],"tag_nvxbio":["5_individu","7_esp&egrave;ce"],"tag_organisme":["Arbres",""],"tag_pheno":["Croissance",""],"tag_site":["Domaine de l'Hermitage",""],"organism":"INRA","respsci":"Jean-Marc Gion","mailsci":"jean-marc.gion@inra.fr","organismtech":"INRA","resptech":"Raphael Segura","mailtech":"raphael.segura@inra.fr","nom-commune":"Cestas","latitude":"","longitude":"","description":"Pineline est une application web adoss&eacute;e &agrave; une base de donn&eacute;es contenant des donn&eacute;es en temps continu : Micro-variations radiales du tronc coupl&eacute;es aux variations environnementales. L'acc&egrave;s &agrave; l'application est disponible &agrave; cette URL : http://pineline.pierroton.inra.fr/pineline/","statutdispo":"Disponible brut","diffusion":"Mixte","statutconservation":"10"}
+</code>
+
+<br/><br/>
+
+<h2 id="demande-stockage">CREATION D'UN ESPACE DE STOCKAGE POUR LE JEU DE DONNEES</h2>
+
+Une fois le fichier au format json enregistr&eacute;, deux cas de figure se pr&eacute;sentent :
+<ol>
+	<li>Vous voulez juste ajouter votre fichier JSON dans un espace sur le NAS car votre jeu de donn&eacute;es est d&eacute;j&agrave; pr&eacute;sent sur un entrep&ocirc;t d&eacute;di&eacute; ou sur DATA INRAE : <a href="#demande">Demande de cr&eacute;ation d'un espace de stockage</a>. Dans ce cas, n'oubliez pas de mentionner dans la partie "Description du jeu de donn&eacute;es / Organisation des r&eacute;pertoires / URL vers sources" <a href="http://147.100.113.193/pgd-biogeco/">de l'interface web</a> l'URL vers votre/vos jeux de donn&eacute;es</a></li>
+	<li>Vous voulez d&eacute;poser un jeu de donn&eacute;s dans un espace &agrave; cr&eacute;er : <a href="#demande">Demande de cr&eacute;ation d'un espace de stockage</a></li>
+	<li>Vous voulez ajouter un jeu de donn&eacute;es &agrave; un espace existant : <a href="#ajout">ajout d'un jeu de donn&eacute;es &agrave; un espace de stockage existant</a></li>
+
+</ol>
+
+<h3 id="demande">DEMANDE DE CREATION D'UN ESPACE DE STOCKAGE</h3>
+Votre jeu de donn&eacute;es fait l'objet d'une premi&egrave;re demande. Pour le stocker, il est n&eacute;cessaire de faire une demande de cr&eacute;ation d'espace de stockage.
+<br/><br/>
+Pour cel&agrave;, r&eacute;digez un mail contenant les informations suivantes :
+<ul>
+	<li>Nom du r&eacute;pertoire qui va contenir vos donn&eacute;es</li>
+	<li>Si vous avez saisi un droit d'acc&egrave;s "Priv&eacute;" dans le formulaire de m&eacute;tadonn&eacute;es (section GESTION), indiquer les adresses mails des personnes ayant un droit d'acc&egrave;s en lecture et &eacute;criture &agrave; ce r&eacute;pertoire</li>
+</ul>
+
+Votre demande sera alors trait&eacute;e dans les plus brefs d&eacute;lais. Vous serez ensuite en mesure d'acc&eacute;der &agrave; ce r&eacute;pertoire en utilisant le voisinage r&eacute;seau, via un simple explorateur de fichier. Consulter <a href="#procedure_connexion">la proc&eacute;dure de connexion</a> &agrave; l'espace de stockage.
+
+<br/><br/>
+
+<h3 id="ajout">AJOUT D'UN JEU DE DONNEES A UN ESPACE DE STOCKAGE EXISTANT</h3>
+Votre jeu de donn&eacute;es vient compl&eacute;ter un jeu de donn&eacute;es existant, ou bien fait partie d'un m&ecirc;me projet, dispositif ou encore action. Dans ce cas, il est inutile de contacter les administrateurs.
+<br/><br/>
+Vous pouvez dans l'ordre :
+<ol>
+	<li>G&eacute;n&eacute;rer un fichier de m&eacute;tadonn&eacute;es au format json pour ce nouveau jeu de donn&eacute;es</li>
+	<li>Cr&eacute;er un sous-r&eacute;pertoire dans le r&eacute;pertoire cr&eacute;&eacute; lors de votre premi&egrave;re demande d'espace de stockage</li>
+	<li>D&eacute;poser votre fichier de m&eacute;tadonn&eacute;es au format json ainsi que les donn&eacute;es correspondantes</li>
+</ol>
+Vous pouvez cr&eacute;er autant de sous-r&eacute;pertoires que vous le d&eacute;sirez, et chacun de ceux-ci peuvent contenir 1 &agrave; n jeux de donn&eacute;es. L'&eacute;l&eacute;ment essentiel est la pr&eacute;sence dans chacun de ces sous-r&eacute;pertoires d'un fichier de m&eacute;tadonn&eacute;es pour bien caract&eacute;riser leur contenu en terme de jeux de donn&eacute;es.
+
+<br/><br/>
+
+<h2 id="recherche">INTERFACE DE RECHERCHE DE JEUX DE DONNEES</h2>
+L'interface de recherche de jeux de donn&eacute;es correspond en tout point &agrave; l'interface de saisie de m&eacute;tadonn&eacute;es. Il est possible de rechercher un jeu de donn&eacute;es en utilisant l'ensemble des champs pr&eacute;sents dans les diff&eacute;rentes sections.
+<br/><br/>
+Une fois les valeurs saisies, se rendre en base de page, d&eacute;finir si vous voulez que l'ensemble de vos champs de recherche soient respect&eacute;s lors de la recherche, ou si vous voulez que celle-ci retourne tous les jeux de donn&eacute;es pour au moins un des champs de recherche saisis.
+
+<hr>
+
+<br/>
+
+<h4 id="procedure_connexion">PROCEDURE DE CONNEXION ESPACE DE STOCKAGE</h4>
+
+<ul>
+	<li><strong>WINDOWS</strong>
+		<ul>
+			<li>Ouvrez l'explorateur de fichiers dans la barre des t&acirc;ches ou  appuyez simultan&eacute;ment sur les touches Windows  + E</li>
+			<li>Puis faites un clic-droit sur Ce PC puis cliquez sur Connecter un lecteur r&eacute;seau</li>
+			<li>Dans la zone Dossier saisissez le chemin d'acc&egrave;s du dossier r&eacute;seau : //147.100.113.73/PGD</li>
+			<li>Pour que  lecteur r&eacute;seau se connecte &agrave; chaque fois que vous ouvrez une session sur votre PC, cochez la case Se reconnecter lors de la connexion</li>
+			<li>Cliquez sur le bouton Terminer</li>
+			<li>Votre dossier nouvellement cr&eacute;&eacute; doit &ecirc;tre accessible en lecture et &eacute;criture</li>
+			<li>Cr&eacute;er des sous-dossiers si besoin</li>
+			<li>D&eacute;poser vos fichiers de donn&eacute;es et le cas &eacute;ch&eacute;ant votre fichier de m&eacute;tadonn&eacute;es (au format json) si celui-ci a &eacute;t&eacute; mis &agrave; jour depuis sa cr&eacute;ation</li>
+		</ul>
+	</li>
+	<br/>
+	<li><strong>LINUX (UBUNTU)</strong>
+		<ul>
+			<li>Ouvrir le Gestionnaire de fichier (Nautilus), faire apparaitre la barre de menu (Ctrl+L), saisir smb://147.100.113.73</li>
+			<li>Renseigner votre ldap, le domaine=INRA, votre mot de passe</li>
+			<li>Cliquer ensuite sur le dossier r&eacute;seau nomm&eacute; PGD</li>
+			<li>Votre dossier nouvellement cr&eacute;&eacute; doit &ecirc;tre accessible en lecture et &eacute;criture</li>
+			<li>Cr&eacute;er des sous-dossiers si besoin</li>
+			<li>D&eacute;poser vos fichiers de donn&eacute;es et le cas &eacute;ch&eacute;ant votre fichier de m&eacute;tadonn&eacute;es (au format json) si celui-ci a &eacute;t&eacute; mis &agrave; jour depuis sa cr&eacute;ation</li>
+		</ul>
+	</li>
+<br/>
+<hr>
+          <footer>
+			&copy; INRAE 2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="../img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

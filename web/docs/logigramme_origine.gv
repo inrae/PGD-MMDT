@@ -1,0 +1,305 @@
+digraph flux {
+	compound=true;
+	labeljust = m;
+	fontname = "Arial";
+
+	graph [
+  		splines=ortho;
+		rankdir = TB
+		bgcolor= whitesmoke
+		nodesep=1
+		ranksep=1
+	]
+	node [
+		fontname = Helvetica
+		fontsize = "18"
+		shape = box
+		style = "rounded,filled"
+		color = white
+	]
+	edge [
+		fontname = Helvetica
+		fontsize = "8"
+	]
+
+    subgraph cluster_0 {
+		label = < <B><FONT POINT-SIZE="36">UMR BIOGECO<BR/><BR/>ORIGINE DES DONNEES </FONT></B><BR/> >;
+		bgcolor= grey;
+
+		subgraph cluster_isc {
+			label = < <BR/><B>INFRASTRUCTURES SCIENTIFIQUES <BR/> COLLECTIVES <BR/><BR/> UMR BIOGECO</B><BR/> >;
+			labeljust = m
+			fontsize = "24"
+			style = "rounded, filled"
+			fillcolor = moccasin
+
+			subgraph cluster_analyses_umr {
+				label = "UMR\n Analyses in lab"
+				style = "rounded, filled"
+				fillcolor = gray93
+
+			pgd_umr [
+					//label = "Directives \nPlan de Gestion UMR BIOGECO"
+					label=<
+						<TABLE ALIGN="CENTER">
+							<TR ALIGN="CENTER">
+								<TD>Directives</TD>
+							</TR>
+							<TR>
+								<TD ALIGN="CENTER" HREF="http://147.100.113.193/pgd-biogeco/docs/PGD_UMR_BIOGECO.pdf" TARGET="_BLANK"><U><font color="blue">Plan de Gestion de Données UMR BIOGECO</font></U></TD>
+							</TR>
+						</TABLE> >;
+					width=4.4
+					height=1.2
+				]
+			}
+
+			subgraph cluster_analyses_genet {
+				//label = "PGTB \n Analyses génétiques & génomiques"
+				label=<
+					<TABLE ALIGN="CENTER">
+						<TR ALIGN="CENTER">
+							<TD ALIGN="CENTER" HREF="https://pgtb.cgfb.u-bordeaux.fr/" TARGET="_BLANK"><U><font color="blue">PGTB</font></U></TD>
+						</TR>
+						<TR>
+							<TD>Analyses génétiques / génomiques</TD>
+						</TR>
+					</TABLE> >;
+				style = "rounded, filled"
+				fillcolor = gray93
+
+				pgd_ag [
+					label = "Directives \nPlan de Gestion PCM PGTB"
+					width=3.8
+					height=1.2
+				]
+		}
+
+		subgraph cluster_analyses_bois {
+				label=<
+					<TABLE ALIGN="CENTER">
+						<TR ALIGN="CENTER">
+							<TD ALIGN="CENTER" HREF="https://www6.inrae.fr/phenobois" TARGET="_BLANK"><U><font color="blue">PHENOBOIS</font></U></TD>
+						</TR>
+						<TR>
+							<TD>Analyses Bois</TD>
+						</TR>
+					</TABLE> >;
+
+				style = "rounded, filled"
+				fillcolor = gray93
+
+			pgd_gb [
+					label = "Directives \nPlan de Gestion PCM PHENOBOIS"
+					width=4.4
+					height=1.2
+				]
+			}
+		}
+
+		// Informatique : code - Modele - Simulation
+		subgraph cluster_info {
+			label = < <BR/><B> INFORMATIQUE </B><BR/> >;
+			labeljust = m
+			fontsize = "24"
+			style = "rounded, filled"
+			fillcolor = whitesmoke
+
+				subgraph cluster_code {
+				label = "Code informatique"
+				style = "rounded, filled"
+				fillcolor = indianred1
+
+				dev_info [
+					label = "Développement \n(Poste de travail)"
+					width=2.5
+				]
+
+				version_info [
+					label = "Versionnement \nde code"
+					width=2.5
+				]
+
+				dev_info -> version_info;
+			}
+			subgraph cluster_modele {
+				label = "Modèles / Simulation"
+				style = "rounded, filled"
+				fillcolor = lemonchiffon3
+
+				dev_modele [
+					label = "Développement \n(Poste de travail)"
+					width=2.5
+				]
+
+				version_modele [
+					label = "Versionnement \nde code"
+					width=2.5
+				]
+
+				dev_modele -> version_modele;
+			}
+		}
+
+		subgraph cluster_observations {
+			label = < <BR/><B>OBSERVATIONS <BR/> RELEVÉS <BR/> MESURES</B><BR/> >;
+			labeljust = m
+			fontsize = "24"
+			style = "rounded, filled"
+			fillcolor = powderblue
+
+				modes_o  [
+				label=<
+					<TABLE ALIGN="CENTER">
+					<TR ALIGN="CENTER">
+						<TD>Modes opératoires et protocoles</TD>
+					</TR>
+					<TR>
+						<TD ALIGN="CENTER" HREF="https://sites.inra.fr/site/GED-Biogeco/" TARGET="_BLANK"><U><font color="blue">GED UMR <BR/><BR/> Documents équipes</font></U></TD>
+					</TR>
+				</TABLE> >;
+					width=4.5
+					height=1.2
+				]
+		}
+
+		subgraph cluster_echantillons {
+			label = < <BR/><B>COLLECTE ET GESTION <BR/> DES ECHANTILLONS</B><BR/> >;
+			labeljust = m
+			fontsize = "24"
+			style = "rounded, filled"
+			fillcolor = palegreen3
+
+			collecte_e [
+				label = "Collecte échantillons"
+				width=3.7
+			]
+			saisie_e [
+			label=<
+				<TABLE ALIGN="CENTER">
+				<TR ALIGN="CENTER">
+					<TD>1 / Poste de travail</TD>
+				</TR>
+				<TR>
+					<TD ALIGN="CENTER" HREF="https://arachne.pierroton.inra.fr/biogeco/samples/" TARGET="_BLANK"><U><font color="blue">2 / Gestion des échantillons <BR/><BR/> Application web <BR/><BR/> ECHANTILLONS / EQUIPEMENTS</font></U></TD>
+				</TR>
+			</TABLE> >;
+
+			width=4
+			height=0.8
+			]
+
+			conditionnement_e [
+				label = "Conditionnement \n\n Conservation \n\n Destruction \n\n"
+				fixedsize=true
+				width=3.5
+				height=2.4
+
+			]
+			collecte_e -> saisie_e -> conditionnement_e [arrowsize=1];
+		}
+
+		subgraph saisie {
+			traitement_col [
+				label = "\DONNÉES\n\n"
+				fixedsize=true
+				width=32.6
+				height=1
+			]
+			traitement_o [
+				label = < <TABLE ALIGN="CENTER" VALIGN="MIDDLE">
+	<TR>
+		<TD ALIGN="CENTER"><B>Traitement et curation des données<BR/><BR/></B></TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER">- Organiser les données</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER">- Définir des règles communes de nommage des fichiers et dossiers</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER">- Tracer les actions effectuées sur les données</TD>
+	</TR>
+</TABLE> >;
+				fixedsize=true
+				width=9.5
+				height=3
+			]
+
+			saisie1_o  [
+				label = < <TABLE ALIGN="CENTER" VALIGN="MIDDLE">
+	<TR>
+		<TD ALIGN="CENTER"><B>Saisie des données / métadonnées<BR/><BR/></B></TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER">1. Poste de travail</TD>
+	</TR>
+	<TR>
+		<TD ALIGN="CENTER" HREF="http://147.100.113.193/pgd-biogeco/" TARGET="_BLANK"><U><font color="blue">2. Interface PGD de saisie <BR/> de métadonnées</font></U></TD>
+	</TR>
+	<TR>
+		<TD>UNE FOIS VOTRE FICHIER .JSON DE MÉTADONNÉES CRÉÉ, CONTACTEZ P.CHAUMEIL OU F.EHRENMANN POUR DÉPÔT SUR LE NAS</TD>
+	</TR>
+</TABLE> >;
+				width=9.5
+				height=2.2
+			]
+			saisie2_o  [
+				label=<
+    <TABLE>
+	<TR>
+		<TD><B>Spécifier<BR/><BR/></B></TD>
+	</TR>
+	<TR>
+		<TD>- Le type de données</TD>
+	</TR>
+	<TR>
+		<TD>- La nature des données</TD>
+	</TR>
+	<TR>
+		<TD HREF="formats_logiciels_libres_proprietaires.pdf" TARGET="_BLANK"><U><font color="blue">- Le(s) format(s) des données</font></U></TD>
+	</TR>
+	<TR>
+		<TD>- Les outils ou logiciels requis pour la lecture des données</TD>
+	</TR>
+	<TR>
+		<TD HREF="PGD_UMR_BIOGECO.pdf" TARGET="_BLANK"><U><font color="blue"><BR/> Consulter le PGD UMR pour accéder à ces informations</font></U></TD>
+	</TR>
+</TABLE> >;
+				width=9.5
+				height=3
+			]
+
+			modes_o -> traitement_col;
+			version_info -> traitement_col;
+			version_modele -> traitement_col;
+			pgd_gb -> traitement_col;
+			pgd_umr -> traitement_col;
+			pgd_ag -> traitement_col;
+			traitement_col -> traitement_o;
+			traitement_o -> saisie1_o -> saisie2_o;
+
+			subgraph cluster_link_storage {
+			label="STOCKAGE";
+			link_storage [shape=none, label = "", image="img/storage.png", href="logigramme_stockage.html"];
+			}
+			subgraph cluster_link_archivage {
+			label="ARCHIVAGE";
+			link_archivage [shape=none, label = "", image="img/archivage.png", href="logigramme_archivage.html"];
+			}
+			subgraph cluster_link_valorisation {
+			label="VALORISATION";
+			link_valorisation [shape=none, label = "", image="img/valorisation.png", href="logigramme_valorisation.html"];
+			}
+			subgraph cluster_link_droits {
+			label="DROITS ET PROPRIETE";
+			link_droits [shape=none, label = "", image="img/droits.png", href="logigramme_droits.html"];
+			}
+		}
+		saisie_e -> pgd_umr [ltail=cluster_echantillons,lhead=cluster_isc, xlabel="Traitement échantillons ", fontsize = "20"];
+		saisie2_o -> link_storage[ltail=saisie,lhead=cluster_link_storage];
+		link_storage -> link_archivage[ltail=cluster_link_storage,lhead=cluster_link_archivage];
+		link_storage -> link_valorisation[ltail=cluster_link_storage,lhead=cluster_link_valorisation];
+		link_storage -> link_droits[ltail=cluster_link_storage,lhead=cluster_link_droits];
+	}
+}

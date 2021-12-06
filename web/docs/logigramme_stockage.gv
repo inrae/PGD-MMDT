@@ -1,0 +1,76 @@
+digraph flux {
+	compound=true;
+	labeljust = m;
+	fontname = "Helvetica";
+
+	graph [
+  		splines=ortho;
+		rankdir = TB
+		bgcolor= whitesmoke
+
+	]
+	node [
+		fontname = Helvetica
+		fontsize = "22"
+		shape = box
+		style = "rounded,filled"
+		color = white
+	]
+	edge [
+		fontname = Helvetica
+		fontsize = "8"
+	]
+
+	// STOCKAGE
+    subgraph cluster_stock {
+        label = < <B><FONT POINT-SIZE="36"><BR/><BR/> STOCKAGE / PARTAGE DES DONNEES </FONT></B><BR/><BR/><BR/> >;
+		labeljust = m;
+		bgcolor= sienna1
+
+		donnees_3 [
+			label = "Données achevées / Code informatique"
+			width=6.6
+			height=2
+		]
+		donnees_4 [
+			label = < <B> Stockage / Partage des données <BR/>au sein de l'UMR </B><BR/><BR/> - NAS unité (droits accès)<BR/> - Bases de données <BR/> - Systèmes d'information >
+			labeljust = m;
+			width=7.5
+			height=3
+		]
+		donnees_5 [
+			label = < <B> Stockage / Partage des données <BR/> en-dehors de l'UMR </B><BR/><BR/> - Bases de données <BR/> - Systèmes d'information <BR/> - Entrepôt institutionnel DATA INRA <BR/> - Entrepôts thématiques <BR/> - Forge logicielle >
+			width=7.5
+			height=3
+		]
+
+		donnees_1 [
+			label = "Données brutes ou en cours \nde traitement ?"
+			width=6
+			height=2
+		]
+		donnees_2 [
+			label = < <TABLE>
+	<TR>
+		<TD><B>Métadonnées</B></TD>
+	</TR>
+	<TR>
+		<TD HREF="http://147.100.113.193/pgd-biogeco/" TARGET="_BLANK"><U><font color="blue">Interface PGD de saisie <BR/> de métadonnées</font></U></TD>
+	</TR>
+	<TR>
+		<TD><B><BR/>Données</B></TD>
+	</TR>
+	<TR>
+		<TD HREF="https://nas-pgtp.pierroton.inra.fr/" TARGET="_BLANK"><U><font color="blue">Demande d'ouverture espace <BR/>sur NAS unité <BR/>(définition des droits d accès)</font></U></TD>
+	</TR>
+</TABLE> >;
+			width=7
+			height=4
+		]
+
+		//donnees_1 -> donnees_3 [xlabel="Non", fontsize="18"];
+		donnees_1 -> donnees_2;
+		donnees_3 -> donnees_4;
+		donnees_3 -> donnees_5;
+    }
+}
