@@ -1,0 +1,2 @@
+0 * * * * python3 /pgd/pgd.py
+30 * * * * python3 /pgd/db-insert.py
