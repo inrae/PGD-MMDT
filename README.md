@@ -15,8 +15,7 @@ This interface allows you to :
 
 ## Installation
 
-Requirements:
-    * a recent OS that support Docker (see https://www.docker.com/)
+Requirements: a recent OS that support Docker (see https://www.docker.com/)
 
 ### Retrieving the code
 Go to the destination directory of your choice then clone the repository and `cd` to your clone path:
