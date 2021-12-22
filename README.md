@@ -1,5 +1,5 @@
 # PGD-MMDT
-### Management of MetaData Tool
+### Metadata management tool for datasets
 
 **PGD-MMDT** is a metadata entry interface for datasets, coupled with a MongoDB database. This metadata entry interface integrates with the Structure Data Management Plan of a research unit or infrastructure, to address issues of data organisation, documentation, storage and sharing.
 
