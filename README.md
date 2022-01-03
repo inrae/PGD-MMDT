@@ -49,17 +49,17 @@ You can change the default values proposed to the user by modifying the Master_P
 
 ### pgd-mmdt-db
 
-To create the **pgd-mmt-dbpart** image, go to the dockerdbpart folder and run the command
+To create the **pgd-mmdt-dbpart** image, go to the dockerdbpart folder and run the command
 
 ```sh
 cd dockerdbpart
-sudo docker build -t pgd-mmt-dbpart .
+sudo docker build -t pgd-mmdt-dbpart .
 ```
 
 To run the **pgd-mmdt-db** container
 
 ```sh
-sudo docker run -d -v mongodbfiles:/data -v <path to your datas>:/pgd_data --name pgd-mmdt-db pgd-mmt-dbpart
+sudo docker run -d -v mongodbfiles:/data -v <path to your datas>:/pgd_data --name pgd-mmdt-db pgd-mmdt-dbpart
 ```
 
 ### pgd-mmdt-scan
