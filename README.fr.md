@@ -47,17 +47,17 @@ Vous pouvez modifier les valeurs proposées par défaut à l'utilisateur en modi
 
 ### pgd-mmdt-db
 
-Pour créer l'image **pgd-mmt-dbpart**, se positionner dans le dossier dockerdbpart et lancer la commande
+Pour créer l'image **pgd-mmdt-dbpart**, se positionner dans le dossier dockerdbpart et lancer la commande
 
 ```sh
 cd dockerdbpart
-sudo docker build -t pgd-mmt-dbpart .
+sudo docker build -t pgd-mmdt-dbpart .
 ```
 
 Pour lancer le container **pgd-mmdt-db**
 
 ```sh
-sudo docker run -d -v mongodbfiles:/data -v <path to your datas>:/pgd_data --name pgd-mmdt-db pgd-mmt-dbpart
+sudo docker run -d -v mongodbfiles:/data -v <path to your datas>:/pgd_data --name pgd-mmdt-db pgd-mmdt-dbpart
 ```
 
 ### pgd-mmdt-scan
