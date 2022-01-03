@@ -72,7 +72,7 @@ sudo docker build -t pgd-mmdt-scanpart .
 Pour lancer le container **pgd-mmdt-scan**
 
 ```sh
-sudo docker run -d  -v <path to your datas>:/pgd_data -v ../web/js:/js --link biogeco-pgd-db --name pgd-mmdt-scan pgd-mmdt-scanpart
+sudo docker run -d  -v <path to your datas>:/pgd_data -v ../web/js:/js --link pgd-mmdt-db --name pgd-mmdt-scan pgd-mmdt-scanpart
 ```
 
 ### pgd-mmdt-web
@@ -87,7 +87,7 @@ sudo docker build -t pgd-mmdt-webpart .
 Pour lancer le container **pgd-mmdt-web**
 
 ```sh
-sudo docker run -d -p 8888:80 -v ../web:/var/www/html --link biogeco-pgd-db --name pgd-mmdt-web pgd-mmdt-webpart
+sudo docker run -d -p 8888:80 -v ../web:/var/www/html --link pgd-mmdt-db --name pgd-mmdt-web pgd-mmdt-webpart
 ```
 
 ### Vérifier que tous les containers tournent correctement
