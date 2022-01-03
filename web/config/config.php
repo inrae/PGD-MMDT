@@ -11,7 +11,7 @@ $database = 'pgd-db';
 $collection = 'metadata';
 
 $uritarget = '127.0.0.1';
-if ($docker_mode==1){$uritarget='biogeco-pgd-db';}
+if ($docker_mode==1){$uritarget='pgd-mmdt-db';}
 $uri = "mongodb://$username:$password@$uritarget:27017/$database";
 $client = new MongoDB\Driver\Manager($uri);
 ?>
