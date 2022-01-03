@@ -79,7 +79,7 @@ final_file_dict = get_json(db_final_commands)
 database = urllib.parse.quote_plus('pgd-db')
 username = urllib.parse.quote_plus(config.username)
 password = urllib.parse.quote_plus(config.password)
-client = MongoClient("mongodb://"+username+":"+password+"@biogeco-pgd-db/"+database)
+client = MongoClient("mongodb://"+username+":"+password+"@pgd-mmdt-db/"+database)
 db = client['pgd-db']
 collection_metadata = db['metadata']
 collection_metadata.drop()
