@@ -13,7 +13,13 @@ Cette interface permet de :
 ------
 **Maintenance & développement**: Philippe Chaumeil & François Ehrenmann - INRAE - UMR 1202 BIOGECO (2019-2021)
 
-## Installation
+## I. Installation sur un NAS synology avec paquet docker
+
+Merci de consulter le tutoriel [ Install on a NAS synology with docker package](https://github.com/inrae/PGD-MMDT/blob/main/web/docs/NAS_synology_install_pgd_mmdt.pdf).
+
+## II. Installation sur un PC personnel sous linux ou sur un serveur linux / unix
+
+Pré-requis: un OS récent qui supporte Docker (voir https://www.docker.com/)
 
 ### Récupération du code
 Se placer dans le répertoire destination de votre choix puis cloner le dépôt et `cd` vers votre chemin de clone :
