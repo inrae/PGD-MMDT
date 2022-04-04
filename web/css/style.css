@@ -29,7 +29,7 @@ input[type=submit] {
 }
 
 h1 {font-size:24px; font-weight:normal; text-align:center; color:#337ab7}
-h2 {font-size:20px; font-weight:normal; text-align:left; color:#ad7367}
+h2 {font-size:20px; font-weight:normal; text-align:left; color:#c52d0d}
 h3 {font-size:19px; font-weight:normal; text-align:left; color:#337ab7}
 h4 {font-size:19px; font-weight:normal; text-align:left; color:#388e3c}
 em {font-size:12px;}
@@ -93,5 +93,11 @@ div.table-responsive {
     color: red;
     font-weight: bold;
 }
+
+.description {
+	color: #4682B4;
+    font-size:16px;
+}
+
 
 /* Documentation page */
