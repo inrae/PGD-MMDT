@@ -111,19 +111,19 @@ var txtboite = {
         titre : "Nom du jeu de données"
     },
     organism : {
-        titre : "Nom de l'organisme r&eacute;alisant la gestion scientifique"
+        titre : "Organisme r&eacute;alisant la gestion scientifique"
     },
     organismtech : {
-        titre : "Nom de l'organisme r&eacute;alisant la gestion technique"
+        titre : "Organisme r&eacute;alisant la gestion technique"
     },
     respsci : {
         titre : "Nom du responsable scientifique"
     },
-    mailsci : {
-        titre : "Email du responsable scientifique"
-    },
     resptech : {
         titre : "Nom du responsable technique"
+    },
+    mailsci : {
+        titre : "Email du responsable scientifique"
     },
     mailtech : {
         titre : "Email du responsable technique"
