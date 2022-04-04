@@ -21,7 +21,6 @@
 <div class="left-div">
 	<div class="btn-group btn-group-lg" role="group">
 		<img src="../img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<img src="../img/Logo-Biogeco_inra_logo.png">
 	</div>
 	<div class="center-div">
 		<div class="btn-group btn-group-lg" role="group">
@@ -42,26 +41,19 @@
         <div class="col-sm-8 col-md-7">
           <h1>Documentation</h1>
 
-			<p><strong><em>L'interface de saisie des m&eacute;tadonn&eacute;es pour les jeux de donn&eacute;es est accessible sur SourceSup, voir le code <a href="">source</a></em></strong></p>
+			<p><strong>L'interface de saisie des m&eacute;tadonn&eacute;es pour les jeux de donn&eacute;es est accessible sur <a href="https://sourcesup.renater.fr/projects/pgd-biogeco">SOURCESUP</a> OU <a href="https://github.com/inrae/PGD-MMDT">GITHUB INRAE</a></strong></p>
 
 <ul>
-  <li><strong>Application:</strong> <a href="../../pgd-biogeco/">INTERFACE DE SAISIE DE METADONNEES / ESPACE DE STOCKAGE DONNEES</a></li>
+  <li><strong>Application:</strong> <a href="../../pgd-biogeco/">INTERFACE DE SAISIE DE METADONNEES</a></li>
   <li><strong>D&eacute;veloppeurs:</strong> Philippe Chaumeil, <a href="mailto:philippe.chaumeil@inrae.fr">philippe.chaumeil@inrae.fr</a>, Francois Ehrenmann, <a href="mailto:francois.ehrenmann@inrae.fr">francois.ehrenmann@inrae.fr</a></li>
-  <li><strong>Besoin d'aide ?</strong>
-    <ul>
-      <li>Aller voir Fran&ccedil;ois Ehrenmann (B&acirc;timent artiga, Bureau A7)</li>
-      <li>Aller voir Philippe Chaumeil (B&acirc;timent observatoire, Bureau au fond &agrave; droite)</li>
-      <li><a href="mailto:philippe.chaumeil@inrae.fr,francois.ehrenmann@inrae.fr">Email</a> pour une aide individuelle ou pour fixer un rendez-vous</li>
-    </ul>
-  </li>
 </ul>
 
 <h2 id="description">INRODUCTION</h2>
 
-<p>La mise en place de l'interface de saisie des m&eacute;tadonn&eacute;es s'int&egrave;gre au <a href="http://147.100.113.193/pgd-biogeco/docs/PGD_UMR_BIOGECO.pdf" target="_blank">Plan de Gestion de Donn&eacute;es</a> de l'UMR Biogeco, pour r&eacute;pondre aux questions de l'organisation, de la documentation, du stockage et du partage des donn&eacute;es. Celle-ci permettra de d&eacute;crire l'ensemble des jeux de donn&eacute;es (via leurs m&eacute;tadonn&eacute;es) produits par l'UMR. Cette interface permet donc de :
+<p>La mise en place de l'interface de saisie des m&eacute;tadonn&eacute;es s'int&egrave;gre au <strong>Plan de Gestion de Donn&eacute;es d'une structure</strong> (Unité de recherche ou expérimentale, Plateforme, Infrastructure de recherche) pour r&eacute;pondre aux questions de l'organisation, de la documentation, du stockage et du partage des donn&eacute;es. Celle-ci permettra de d&eacute;crire l'ensemble des jeux de donn&eacute;es (via leurs m&eacute;tadonn&eacute;es) produits par l'UMR. Cette interface permet donc de :
 <ul>
 	<li>D&eacute;crire un jeu de donn&eacute;es &agrave; l'aide de m&eacute;tadonn&eacute;es de diff&eacute;rents types (Description)</li>
-	<li>Ouvrir un espace de stockage pour le jeu de donn&eacute;es (Stockage)</li>
+	<li>Ouvrir un espace de stockage pour le jeu de donn&eacute;es (Stockage via un environnement global mis en place par la structure)</li>
 	<li>Affecter des droits pour l'acc&egrave;s au jeu de donn&eacute;es (Confidentialit&eacute;)</li>
 	<li>Rechercher des jeux de donn&eacute;es &agrave; partir de leurs m&eacute;tadonn&eacute;es (Accessibilit&eacute;)</li>
 </ul>
@@ -204,7 +196,7 @@ Section permettant de saisir les m&eacute;tadonn&eacute;es pour un nouveau jeu d
 
 <h2 id="genere-fichier">CREATION DU FICHIER DE METADONNEES</h2>
 
-<p>Lorsque l'ensemble des m&eacute;tadonn&eacute;es a &eacute;t&eacute; saisi, il suffit de valider le formulaire en cliquant sur le bouton <strong>"Enregistrer dans un fichier"</strong> en bas de page. Le navigateur va alors vous proposer de t&eacute;l&eacute;charger votre fichier de m&eacute;tadonn&eacute;es. <br/><br/>Le fichier, au format json, a par d&eacute;faut un nom du type <strong><i>PDG_145985.json</i></strong>. Il est possible de renommer ce fichier avec un nom plus explicite concernant votre jeu de donn&eacute;s, par exemple <strong><i>microvariation_abiogen_2019.json</i></strong>, en prenant bien soin de garder l'extension json pour votre nouveau fichier.
+<p>Lorsque l'ensemble des m&eacute;tadonn&eacute;es a &eacute;t&eacute; saisi, il suffit de valider le formulaire en cliquant sur le bouton <strong>"Enregistrer dans un fichier"</strong> en bas de page. Le navigateur va alors vous proposer de t&eacute;l&eacute;charger votre fichier de m&eacute;tadonn&eacute;es. <br/><br/>Le fichier, au format json, a par d&eacute;faut un nom du type <strong><i>PGD_145985.json</i></strong>. Il est possible de renommer ce fichier avec un nom plus explicite concernant votre jeu de donn&eacute;s, par exemple <strong><i>microvariation_abiogen_2019.json</i></strong>, en prenant bien soin de garder l'extension json pour votre nouveau fichier.
 
 <br/><br/>
 
@@ -219,7 +211,7 @@ Exemple d'un contenu de fichier de m&eacute;tadonn&eacute;es :
 
 Une fois le fichier au format json enregistr&eacute;, deux cas de figure se pr&eacute;sentent :
 <ol>
-	<li>Vous voulez juste ajouter votre fichier JSON dans un espace sur le NAS car votre jeu de donn&eacute;es est d&eacute;j&agrave; pr&eacute;sent sur un entrep&ocirc;t d&eacute;di&eacute; ou sur DATA INRAE : <a href="#demande">Demande de cr&eacute;ation d'un espace de stockage</a>. Dans ce cas, n'oubliez pas de mentionner dans la partie "Description du jeu de donn&eacute;es / Organisation des r&eacute;pertoires / URL vers sources" <a href="http://147.100.113.193/pgd-biogeco/">de l'interface web</a> l'URL vers votre/vos jeux de donn&eacute;es</a></li>
+	<li>Vous voulez juste ajouter votre fichier JSON dans un espace sur le NAS car votre jeu de donn&eacute;es est d&eacute;j&agrave; pr&eacute;sent sur un entrep&ocirc;t d&eacute;di&eacute; ou sur DATA INRAE : <a href="#demande">Demande de cr&eacute;ation d'un espace de stockage</a>. Dans ce cas, n'oubliez pas de mentionner dans la partie "Description du jeu de donn&eacute;es / Organisation des r&eacute;pertoires / URL vers sources" <a href="HTTP_YOUR_URL_WHERE_pgd-biogeco_IS/">de l'interface web</a> l'URL vers votre/vos jeux de donn&eacute;es</a></li>
 	<li>Vous voulez d&eacute;poser un jeu de donn&eacute;s dans un espace &agrave; cr&eacute;er : <a href="#demande">Demande de cr&eacute;ation d'un espace de stockage</a></li>
 	<li>Vous voulez ajouter un jeu de donn&eacute;es &agrave; un espace existant : <a href="#ajout">ajout d'un jeu de donn&eacute;es &agrave; un espace de stockage existant</a></li>
 
@@ -267,7 +259,7 @@ Une fois les valeurs saisies, se rendre en base de page, d&eacute;finir si vous 
 		<ul>
 			<li>Ouvrez l'explorateur de fichiers dans la barre des t&acirc;ches ou  appuyez simultan&eacute;ment sur les touches Windows  + E</li>
 			<li>Puis faites un clic-droit sur Ce PC puis cliquez sur Connecter un lecteur r&eacute;seau</li>
-			<li>Dans la zone Dossier saisissez le chemin d'acc&egrave;s du dossier r&eacute;seau : //147.100.113.73/PGD</li>
+			<li>Dans la zone Dossier saisissez le chemin d'acc&egrave;s du dossier r&eacute;seau : //YOUR_IP_SERVER_OR_NAS/PGD</li>
 			<li>Pour que  lecteur r&eacute;seau se connecte &agrave; chaque fois que vous ouvrez une session sur votre PC, cochez la case Se reconnecter lors de la connexion</li>
 			<li>Cliquez sur le bouton Terminer</li>
 			<li>Votre dossier nouvellement cr&eacute;&eacute; doit &ecirc;tre accessible en lecture et &eacute;criture</li>
@@ -278,7 +270,7 @@ Une fois les valeurs saisies, se rendre en base de page, d&eacute;finir si vous 
 	<br/>
 	<li><strong>LINUX (UBUNTU)</strong>
 		<ul>
-			<li>Ouvrir le Gestionnaire de fichier (Nautilus), faire apparaitre la barre de menu (Ctrl+L), saisir smb://147.100.113.73</li>
+			<li>Ouvrir le Gestionnaire de fichier (Nautilus), faire apparaitre la barre de menu (Ctrl+L), saisir smb://YOUR_IP_SERVER_OR_NAS</li>
 			<li>Renseigner votre ldap, le domaine=INRA, votre mot de passe</li>
 			<li>Cliquer ensuite sur le dossier r&eacute;seau nomm&eacute; PGD</li>
 			<li>Votre dossier nouvellement cr&eacute;&eacute; doit &ecirc;tre accessible en lecture et &eacute;criture</li>
@@ -289,7 +281,7 @@ Une fois les valeurs saisies, se rendre en base de page, d&eacute;finir si vous 
 <br/>
 <hr>
           <footer>
-			&copy; INRAE 2020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&copy; INRAE 2022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<img src="../img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
           </footer>
