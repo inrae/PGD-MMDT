@@ -173,7 +173,7 @@
                                         <label for="select" class="labeldiv">'+checkboite[identif_boite]['label']+'</label>\
                                         <div class="field_wrapper '+identif_boite+'">\
                                             <div>\
-                                                <input class="form-control '+identif_boite+'" type="text" name="'+identif_boite+'-1" value=""/>\
+                                                <input class="form-control form-control-sm '+identif_boite+'" type="text" name="'+identif_boite+'-1" value=""/>\
                                                 <a href="javascript:void(0);" class="add_button '+identif_boite+'" title="Add field"><button type="button" class="btn btn-primary btn-xs" id="addrow"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une ligne</button></a>\
                                                 <input type="hidden" name="compteur" value="2" id="compteur"/>\
                                             </div>\
@@ -191,7 +191,7 @@
                                 '<div id="'+identif_boite+'" class="form-group '+identif_boite+'">\
                                     <label for="name" class="labeldiv">'+listboite[identif_boite]['titre']+'</label>\
                                     <fieldset>\
-                                        <select id="'+identif_boite+'_select" name="'+identif_boite+'" class="form-control '+identif_boite+'"></select>\
+                                        <select id="'+identif_boite+'_select" name="'+identif_boite+'" class="form-control form-control-sm '+identif_boite+'"></select>\
                                     </fieldset>\
                                 </div>';
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
@@ -201,7 +201,7 @@
                 var myfieldHTML =
                                 '<div class="form-group">\
                                     <label for="XXXX" class="labeldiv">'+ txtboite[identif_boite]['titre'] +'</label>\
-                                    <input class="form-control solo" type="text" name="'+ identif_boite +'" id="'+ identif_boite +'" />\
+                                    <input class="form-control form-control-sm solo" type="text" name="'+ identif_boite +'" id="'+ identif_boite +'" />\
                                 </div>';
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
             }
@@ -210,7 +210,7 @@
                 var myfieldHTML =
                                 '<div class="form-group">\
                                     <label for="'+ identif_boite +'">'+ areaboite[identif_boite]['titre'] +'</label>\
-                                    <textarea class="form-control" name="'+ identif_boite +'" rows="'+ areaboite[identif_boite]['rows'] +'" cols="'+ areaboite[identif_boite]['cols'] +'" id="'+ identif_boite +'"></textarea>\
+                                    <textarea class="form-control form-control-sm" name="'+ identif_boite +'" rows="'+ areaboite[identif_boite]['rows'] +'" cols="'+ areaboite[identif_boite]['cols'] +'" id="'+ identif_boite +'"></textarea>\
                                 </div>';
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
             }
@@ -222,7 +222,7 @@
                 if(cur_cpt < maxField){
                         cur_cpt++; //Increment field counter
                         checkboite[chk_box_name]['compteur'] =  cur_cpt;
-                        var fieldHTML = '<br/><div><input type="text" class="form-control '+ chk_box_name +'" name="'+ chk_box_name +'-'+ cur_cpt +'" value=""/><a href="javascript:void(0);" class="remove_button '+ chk_box_name +'"><button type="button" class="btn btn-danger btn-xs" id="addrow"><i class="fa fa-plus-circle" aria-hidden="true"></i> Supprimer la ligne</button></a></div>'; //New input field html
+                        var fieldHTML = '<br/><div><input type="text" class="form-control form-control-sm '+ chk_box_name +'" name="'+ chk_box_name +'-'+ cur_cpt +'" value=""/><a href="javascript:void(0);" class="remove_button '+ chk_box_name +'"><button type="button" class="btn btn-danger btn-xs" id="addrow"><i class="fa fa-plus-circle" aria-hidden="true"></i> Supprimer la ligne</button></a></div>'; //New input field html
                         $(targetDOM).append(fieldHTML); //Add field html
                 }
             }
@@ -237,7 +237,6 @@
 <div class="left-div">
 	<div class="btn-group btn-group-lg" role="group">
 		<img src="img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<img src="img/Logo-Biogeco_inra_logo.png">
 	</div>
 	<div class="center-div">
 		<div class="btn-group btn-group-lg" role="group">
@@ -277,7 +276,7 @@
     <!-- TEMPORAIRE : Pour voir la tête du json chargé -->
     <!-- <textarea id="result"></textarea> -->
 
-        <br/><br/>
+        <br/><br/><br/><br/>
         <h2>B/ OU SAISIR LES METADONNEES D'UN JEU DE DONNEES</h2>
 
 		<h3>DEFINITION</h3>
@@ -320,17 +319,17 @@
         <div class="autocomplete">
             <label for="name" class="labeldiv">Commune</label>
             <em>(Saisir les premi&egrave;res lettres de la commune)</em>
-            <input class="form-control solo" type="text" name="nom-commune" id="nom-commune" />
+            <input class="form-control form-control-sm solo" type="text" name="nom-commune" id="nom-commune" />
         </div>
         <div class="autocomplete">
             <label for="name" class="labeldiv">Latitude</label>
             <em>(degr&eacute;s d&eacute;cimaux))</em>
-            <input class="form-control solo" type="text" name="latitude" id="latitude" />
+            <input class="form-control form-control-sm solo" type="text" name="latitude" id="latitude" />
         </div>
         <div class="autocomplete">
             <label for="name" class="labeldiv">Longitude</label>
             <em>(degr&eacute;s d&eacute;cimaux))</em>
-            <input class="form-control solo" type="text" name="longitude" id="longitude" />
+            <input class="form-control form-control-sm solo" type="text" name="longitude" id="longitude" />
         </div>
         <br><br>
 
@@ -366,10 +365,10 @@
 
 		<ul class="bold-red">
 			<li>
-				Une fois votre fichier .json de m&eacute;tadonn&eacute;es cr&eacute;&eacute;, contactez <a href="mailto:philippe.chaumeil@inrae.fr">P.Chaumeil</a> ou <a href="mailto:francois.ehrenmann@inrae.fr">F.Ehrenmann</a> pour d&eacute;p&ocirc;t de celui-ci sur le NAS
+				Une fois votre fichier .json de m&eacute;tadonn&eacute;es cr&eacute;&eacute;, contactez <a href="mailto:admin.nas.your.structure">Admin NAS / Serveur</a> pour d&eacute;p&ocirc;t de celui-ci sur le NAS ou Serveur
 			</li>
 			<li>
-				Vous pouvez stocker vos donn&eacute;es ensuite sur le NAS mais cela n'est pas n&eacute;cessaire si elles sont d&eacute;j&agrave; disponibles sur un autre espace de stockage ou entrep&ocirc;t (exemple : dataverse Biogeco). Dans ce dernier cas, indiquer l'URL o&ugrave; sont stock&eacute;es vos donn&eacute;es dans la section "Description du jeu de donn&eacute;es"
+				Vous pouvez stocker vos donn&eacute;es ensuite sur le NAS mais cela n'est pas n&eacute;cessaire si elles sont d&eacute;j&agrave; disponibles sur un autre espace de stockage ou entrep&ocirc;t (exemple : dataverse de votre unité ou structure). Dans ce dernier cas, indiquer l'URL o&ugrave; sont stock&eacute;es vos donn&eacute;es dans la section "Description du jeu de donn&eacute;es"
 
 			</li>
 		</ul>
@@ -383,8 +382,7 @@
 
 
 <!-- TEMPORAIRE : Affichage de ce qui est enregistré dans le fichier json -->
-<pre id="output"></pre>
-
+<!--<pre id="output"></pre>-->
 
 <script>
 	autocomplete(document.getElementById("nom-commune"), communes);
