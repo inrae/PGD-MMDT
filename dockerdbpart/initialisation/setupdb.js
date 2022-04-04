@@ -21,30 +21,42 @@ if (db.getMongo().getDBNames().indexOf("pgd-db") == -1){
 	}
 	// Création collection metadata
 	db.createCollection( "metadata",
-    {
-		validator: { $or:
-		 [
-		  { "tag-dispo": { $type: "array" } },
-		  { "nom-organisme": { $type: "string" } },
-		  { "nom-commune": { $type: "string" } },
-		  { "latitude": { $type: "double" } },
-		  { "longitude": { $type: "double" } },
-		  { "nom-scientifique": { $type: "string" } },
-		  { "email-scientifique": { $type: "string" } },
-		  { "nom-technique": { $type: "string" } },
-		  { "email-technique": { $type: "string" } },
-		  { "statut-dispo": { $type: "string" } },
-		  { "multi-datatype": { $type: "array" } },
-		  { "multi-valorisation": { $type: "array" } },
-		  { "diffusion": { $type: "string" } },
-		  { "tag-projet": { $type: "array" } },
-		  { "tag-espece": { $type: "array" } },
-		  { "tag-annee": { $type: "array" } },
-		  { "tag-financeur": { $type: "array" } },
-		  { "description": { $type: "string" } },
-		  { "chemin": { $type: "string" } }
-		 ]
-		}
-	}
-  );
+	   {
+		  validator: { $or:
+			 [
+				{ "title": { $type: "string" } },
+				{ "statutdispo": { $type: "string" } },
+				{ "statutconservation": { $type: "string" } },
+				{ "diffusion": { $type: "string" } },
+				{ "organism": { $type: "string" } },
+				{ "respsci": { $type: "string" } },
+				{ "mailsci": { $type: "string" } },
+				{ "organismtech": { $type: "string" } },
+				{ "resptech": { $type: "string" } },
+				{ "mailtech": { $type: "string" } },
+				{ "tag_financeur": { $type: "array" } },
+				{ "tag_contrat": { $type: "array" } },
+				{ "multivalorisation": { $type: "array" } },
+				{ "tag_dispo": { $type: "array" } },
+				{ "tag_site": { $type: "array" } },
+				{ "nom_commune": { $type: "string" } },
+				{ "latitude": { $type: "string" } },
+				{ "longitude": { $type: "string" } },
+				{ "tag_annee": { $type: "array" } },
+				{ "tag_nvxbio": { $type: "array" } },
+				{ "tag_organisme": { $type: "array" } },
+				{ "tag_espece": { $type: "array" } },
+				{ "tag_habitat": { $type: "array" } },
+				{ "tag_dna": { $type: "array" } },
+				{ "tag_pheno": { $type: "array" } },
+				{ "tag_envt": { $type: "array" } },
+				{ "tag_dynamique": { $type: "array" } },
+				{ "tag_info": { $type: "array" } },
+				{ "tag_autredonnee": { $type: "array" } },
+				{ "description": { $type: "string" } },
+				{ "chemin": { $type: "string" } }
+			 ]
+		  }
+	   }
+	);
 };
