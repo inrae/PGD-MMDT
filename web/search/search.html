@@ -82,7 +82,7 @@
                      }
             });
 
-
+			/* Generation Code Check Boxes */
             function insert_checkboite (identif_boite){
                 var myfieldHTML =
                                 '<div style="padding:4px; border:4px solid #ebebeb;">\
@@ -99,35 +99,37 @@
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
             }
 
+			/* Generation Code Listes deroulantes */
             function insert_listboite (identif_boite){
                 var myfieldHTML =
                                 '<div id="'+identif_boite+'" class="form-group '+identif_boite+'">\
                                     <label for="name" class="labeldiv">'+listboite[identif_boite]['titre']+'</label>\
                                     <fieldset>\
-                                        <select id="'+identif_boite+'_select" name="'+identif_boite+'" class="form-control '+identif_boite+'"></select>\
+                                        <select id="'+identif_boite+'_select" name="'+identif_boite+'" class="form-control form-control-sm '+identif_boite+'"></select>\
                                     </fieldset>\
                                 </div>';
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
             }
 
+			/* Generation Code Input type Texte */
             function insert_txtboite (identif_boite){
                 var myfieldHTML =
                                 '<div class="form-group">\
                                     <label for="XXXX" class="labeldiv">'+ txtboite[identif_boite]['titre'] +'</label>\
-                                    <input class="form-control solo" type="text" name="'+ identif_boite +'" id="'+ identif_boite +'" />\
+                                    <input class="form-control form-control-sm solo" type="text" name="'+ identif_boite +'" id="'+ identif_boite +'" />\
                                 </div>';
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
             }
 
+			/* Generation Code Input type Textarea */
             function insert_areaboite (identif_boite){
                 var myfieldHTML =
                                 '<div class="form-group">\
                                     <label for="'+ identif_boite +'">'+ areaboite[identif_boite]['titre'] +'</label>\
-                                    <textarea class="form-control" name="'+ identif_boite +'" rows="'+ areaboite[identif_boite]['rows'] +'" cols="'+ areaboite[identif_boite]['cols'] +'" id="'+ identif_boite +'"></textarea>\
+                                    <textarea class="form-control form-control-sm" name="'+ identif_boite +'" rows="'+ areaboite[identif_boite]['rows'] +'" cols="'+ areaboite[identif_boite]['cols'] +'" id="'+ identif_boite +'"></textarea>\
                                 </div>';
                 $('.ancre.'+ identif_boite).append(myfieldHTML);
             }
-
 	</script>
 </head>
 
@@ -136,7 +138,6 @@
 <div class="left-div">
 	<div class="btn-group btn-group-lg" role="group">
 		<img src="../img/logo_inrae.svg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<img src="../img/Logo-Biogeco_inra_logo.png">
 	</div>
 	<div class="center-div">
 		<div class="btn-group btn-group-lg" role="group">
@@ -167,17 +168,17 @@
 
         <h2>GESTION</h2>
         <div class="ancre diffusion"></div>
-        <br/>
-        <div class="ancre organism"></div>
-        <br/>
-        <div class="ancre respsci"></div>
-        <br/>
-        <div class="ancre mailsci"></div>
-        <br/>
-        <div class="ancre resptech"></div>
-        <br/>
-        <div class="ancre mailtech"></div>
-        <br/>
+
+		<div class="form-row">
+			<div class="ancre organism col"></div>
+			<div class="ancre respsci col"></div>
+			<!--<div class="ancre mailsci col"></div>-->
+		</div>
+        <div class="form-row">
+			<div class="ancre organismtech col"></div>
+			<div class="ancre resptech col"></div>
+			<!--<div class="ancre mailtech col"></div>-->
+		</div>
         <div class="ancre tag_financeur"></div>
         <br/>
         <div class="ancre tag_contrat"></div>
@@ -193,17 +194,17 @@
         <div class="autocomplete">
             <label for="name" class="labeldiv">Commune</label>
             <em>(Saisir les premi&egrave;res lettres de la commune)</em>
-            <input class="form-control solo" type="text" name="nom-commune" id="nom-commune" />
+            <input class="form-control form-control-sm solo" type="text" name="nom-commune" id="nom-commune" />
         </div>
         <div class="autocomplete">
             <label for="name" class="labeldiv">Latitude</label>
             <em>(degr&eacute;s d&eacute;cimaux))</em>
-            <input class="form-control solo" type="text" name="latitude" id="latitude" />
+            <input class="form-control form-control-sm solo" type="text" name="latitude" id="latitude" />
         </div>
         <div class="autocomplete">
             <label for="name" class="labeldiv">Longitude</label>
             <em>(degr&eacute;s d&eacute;cimaux))</em>
-            <input class="form-control solo" type="text" name="longitude" id="longitude" />
+            <input class="form-control form-control-sm solo" type="text" name="longitude" id="longitude" />
         </div>
         <br><br>
 
@@ -245,6 +246,8 @@
 		</div>
 
 		<br/><br/>
+
+		<p id="res"></p>
 
         <p>
             <input type="submit" value="Rechercher" class="btn btn-primary btn-block" />
