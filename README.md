@@ -78,7 +78,7 @@ sudo docker build -t pgd-mmdt-scanpart .
 To run the **pgd-mmdt-scan** container
 
 ```sh
-sudo docker run -d -v <path to your datas>:/pgd_data -v ../web/js:/js --link pgd-mmdt-db --name pgd-mmdt-scan pgd-mmdt-scanpart
+sudo docker run -d -v <path to your datas>:/pgd_data -v $(pwd)/../web/js:/js --link pgd-mmdt-db --name pgd-mmdt-scan pgd-mmdt-scanpart
 ```
 
 ### pgd-mmdt-web
@@ -93,7 +93,7 @@ sudo docker build -t pgd-mmdt-webpart .
 To launch the **pgd-mmdt-web** container
 
 ```sh
-sudo docker run -d -p 8888:80 -v ../web:/var/www/html --link pgd-mmdt-db --name pgd-mmdt-web pgd-mmdt-webpart
+sudo docker run -d -p 8888:80 -v $(pwd)/../web:/var/www/html --link pgd-mmdt-db --name pgd-mmdt-web pgd-mmdt-webpart
 ```
 
 ### Check that all containers are running correctly
@@ -124,7 +124,7 @@ sudo docker container rm pgd-mmdt-scan
 sudo docker container rm pgd-mmdt-web
 sudo docker container rm pgd-mmdt-db
 sudo docker image rm pgd-mmdt-dbpart
-sudo docker image rm pgd-mmdt-dscanpart
+sudo docker image rm pgd-mmdt-scanpart
 sudo docker image rm pgd-mmdt-webpart
 ```
 ### Remove data from the database
