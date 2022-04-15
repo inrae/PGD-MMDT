@@ -132,3 +132,13 @@ sudo docker image rm pgd-mmdt-webpart
 ```sh
 sudo docker volume rm mongodbfiles
 ```
+
+------
+
+### Funded by:
+
+* INRAE UMR 1202 BIOGECO, Biodiversité Gènes et Communautés
+
+### License
+
+GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 - See the included LICENSE file.
