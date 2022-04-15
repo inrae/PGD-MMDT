@@ -42,7 +42,7 @@ PGD-MMDT uses 3 Docker containers for 3 distinct services:
 You need to configure the passwords for the users admin-mongo, userw-pgd & userr-pgd in the following files:
 
 - dockerdbpart/initialization/setupdb.js
-- dockerscanpart/db-insert.py
+- dockerscanpart/config.py
 - web/config/config.php
 
 You must set the **$docker_mode parameter to 1** in the web/config/config.php file
