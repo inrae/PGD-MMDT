@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ubuntu
 LABEL biogeco.version-date="2021-11-25"
-RUN apt-get update && apt-get install -y cron && rm -rf /var/lib/apt/lists/* && mkdir /pgd
+RUN apt-get update && apt-get install -y cron python3 python3-pymongo && rm -rf /var/lib/apt/lists/* && mkdir /pgd
 COPY config.py pgd.py db-insert.py Master_PGD.json /pgd/
 COPY pgd-cron /etc/cron.d/pgd-cron
 # Give execution rights on the cron job
